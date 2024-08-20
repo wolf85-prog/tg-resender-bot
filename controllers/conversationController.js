@@ -22,7 +22,8 @@ class ConversationController {
             }
 
             await Conversation.create({
-                members: [senderId, receiverId]
+                members: [senderId, receiverId],
+                bot: 1
             }) 
             return res.status(200).json(`coversation saved sucessfully`)
         } catch (error) {
