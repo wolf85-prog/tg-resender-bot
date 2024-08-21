@@ -10,7 +10,7 @@ class ConversationController {
             const {senderId, receiverId} = req.body
 
             //найти беседу
-            const exist = await Conversation.findOne({
+            const exist = await Conversationbot.findOne({
                 where: { 
                     members: {
                         [Op.contains]: [senderId]
@@ -21,7 +21,7 @@ class ConversationController {
                 return res.status(200).json(`conversation already exist`);
             }
 
-            await Conversation.create({
+            await Conversationbot.create({
                 members: [senderId, receiverId],
                 bot: 1
             }) 
@@ -50,7 +50,7 @@ class ConversationController {
 
     async getConversations(req, res) {  
         try {   
-            const conversations = await Conversation.findAll({
+            const conversations = await Conversationbot.findAll({
                 order: [
                     ['id', 'DESC'],
                 ],
