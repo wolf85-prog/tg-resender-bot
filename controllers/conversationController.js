@@ -1,4 +1,4 @@
-const { Conversation } = require("../models/models");
+const { Conversationbot } = require("../models/models");
 const { Op } = require('sequelize')
 
 class ConversationController {
@@ -35,7 +35,7 @@ class ConversationController {
         try {
             const chatId = req.params.id
     
-            const conversation = await Conversation.findOne({
+            const conversation = await Conversationbot.findOne({
                 where: {
                     members: {
                         [Op.contains]: [chatId]

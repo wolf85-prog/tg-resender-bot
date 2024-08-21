@@ -31,7 +31,7 @@ const Message = sequelize.define('message', {
     replyId: {type: DataTypes.STRING}, //id пересылаемого сообщения
 })
 
-const Conversation = sequelize.define('conversation', {
+const Conversationbot = sequelize.define('conversationbot', {
     members: {type: DataTypes.ARRAY(DataTypes.STRING)},
     bot: {type: DataTypes.INTEGER},
 })
@@ -42,6 +42,6 @@ module.exports = {
     User, 
     UserBot, 
     Message, 
-    Conversation, 
+    Conversationbot, 
 
 }
